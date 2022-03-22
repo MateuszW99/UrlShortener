@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using UrlShortener.Application.Interfaces;
+using UrlShortener.Application.Services;
 using UrlShortener.Persistence;
 
 namespace UrlShortener.Application
@@ -13,6 +15,15 @@ namespace UrlShortener.Application
                 options.UseInMemoryDatabase("UrlShortenerDB");
             });
             
+            return services;
+        }
+
+        public static IServiceCollection InstallServices(this IServiceCollection services)
+        {
+            services.AddTransient<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddSingleton<IUrlShortener, UrlShortenerService>();
+            services.AddTransient<IUrlStoreService, UrlStoreService>();
+
             return services;
         }
     }

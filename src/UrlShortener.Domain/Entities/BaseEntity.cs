@@ -4,6 +4,6 @@ namespace UrlShortener.Domain.Entities
 {
     public interface IBaseEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

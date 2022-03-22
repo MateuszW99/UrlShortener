@@ -9,10 +9,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\UrlShortener.Persistence\UrlShortener.Persistence.csproj" />
     </ItemGroup>
 
